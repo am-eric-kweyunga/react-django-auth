@@ -4,8 +4,6 @@ import {
     RegisterCredentials,
     AuthResponse,
     TokenResponse,
-    // ForgotPasswordCredentials,
-    // ResetPasswordCredentials,
     User
 } from './types';
 import {
@@ -89,39 +87,6 @@ export const refreshToken = async (): Promise<TokenResponse> => {
         throw error;
     }
 };
-
-// export const forgotPassword = async (credentials: ForgotPasswordCredentials): Promise<void> => {
-//     try {
-//         await api.client.post(api.endpoints.auth.forgotPassword, credentials);
-//         apiLogger.info('Password reset email sent', { email: credentials.email });
-//     } catch (error) {
-//         apiLogger.error('POST', api.endpoints.auth.forgotPassword, error as { response?: { status: number; data: unknown }; message: string; stack?: string });
-//         throw error;
-//     }
-// };
-
-// export const resetPassword = async (credentials: ResetPasswordCredentials): Promise<void> => {
-//     try {
-//         await api.client.post(api.endpoints.auth.resetPassword, credentials);
-//         apiLogger.info('Password reset successful');
-//     } catch (error) {
-//         if (error instanceof Error) {
-//             apiLogger.error("POST", "", { message: error.message, stack: error.stack });
-//         } else {
-//             apiLogger.error("POST", "", { message: String(error) });
-//         }
-//         throw error;
-//     }
-// };
-
-// export const validateResetToken = async (token: string): Promise<boolean> => {
-//     try {
-//         await api.client.post(api.endpoints.auth.validateResetToken, { token });
-//         return true;
-//     } catch {
-//         return false;
-//     }
-// };
 
 export const getCurrentUser = (): User | null => {
     const authData = getStoredAuthData();

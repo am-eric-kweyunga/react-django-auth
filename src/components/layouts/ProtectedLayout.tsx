@@ -10,9 +10,6 @@ const ProtectedLayout = () => {
 
   return (
     <div>
-      <nav className="bg-white shadow">
-        {/* Add your navigation header here */}
-      </nav>
       <main className="container mx-auto px-4 py-8">
         <Outlet />
       </main>

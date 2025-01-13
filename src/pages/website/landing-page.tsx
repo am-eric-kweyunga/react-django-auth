@@ -14,7 +14,7 @@ const LandingPage = () => {
     >
       <div className="flex container items-center justify-between py-5">
         <div>
-          <img src="/kaidoku-logo.svg" alt="Logo" className="w-1/2" />
+          <img src="/react.svg" alt="Logo" className="w-1/2" />
         </div>
         <div>
           <Button

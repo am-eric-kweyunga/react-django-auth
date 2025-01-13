@@ -1,27 +1,30 @@
-import { Navigate, RouterProvider, createBrowserRouter, RouteObject } from "react-router-dom";
-import { publicRoutes } from "./routes/public-routes/public";
-import { protectedRoutes } from "./routes/protected-routes/protected";
-import { AuthProvider } from "./context/AuthContext";
-import { Toaster } from "./components/ui/toaster";
+import {createBrowserRouter, Navigate, RouteObject, RouterProvider} from "react-router-dom";
+import {publicRoutes} from "./routes/public-routes/public";
+import {protectedRoutes} from "./routes/protected-routes/protected";
+import {AuthProvider} from "./context/AuthContext";
+import {Toaster} from "./components/ui/toaster";
+import {ThemeProvider} from "@/providers/theme-provider"
 
 const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <Navigate to="/sign-in" replace />,
-  },
-  ...publicRoutes,
-  ...protectedRoutes,
+    {
+        path: "/",
+        element: <Navigate to="/sign-in" replace/>,
+    },
+    ...publicRoutes,
+    ...protectedRoutes,
 ];
 
 const router = createBrowserRouter(routes);
 
 function App() {
-  return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <Toaster />
-    </AuthProvider>
-  );
+    return (
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <AuthProvider>
+                <RouterProvider router={router}/>
+                <Toaster/>
+            </AuthProvider>
+        </ThemeProvider>
+    );
 }
 
 export default App;
